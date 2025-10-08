@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Exchange Simulator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #0f1421;
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .status {
+            background: #1e2335;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .market-data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .coin-card {
+            background: #1e2335;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .price-up { color: #00ff88; }
+        .price-down { color: #ff4444; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Crypto Exchange Simulator</h1>
+        
+        <div class="status">
+            <h3>Статус сервера: <span id="status">Загрузка...</span></h3>
+            <p>Подключение WebSocket: <span id="ws-status">Не подключено</span></p>
+        </div>
+
+        <div class="market-data" id="market-data">
+            <!-- Сюда будем вставлять данные криптовалют -->
+        </div>
+
+        <div class="auth-section">
+            <h3>Авторизация</h3>
+            <input type="text" id="username" placeholder="Логин">
+            <input type="password" id="password" placeholder="Пароль">
+            <button onclick="login()">Войти</button>
+            <button onclick="register()">Регистрация</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        
+        // Проверка подключения
+        socket.on('connect', () => {
+            document.getElementById('ws-status').textContent = 'Подключено';
+            document.getElementById('ws-status').style.color = '#00ff88';
+        });
+
+        socket.on('disconnect', () => {
+            document.getElementById('ws-status').textContent = 'Не подключено';
+            document.getElementById('ws-status').style.color = '#ff4444';
+        });
+
+        // Получаем статус сервера
+        fetch('/api/status')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').textContent = data.status;
+            });
+
+        // Заглушки для функций
+        function login() {
+            alert('Функция входа в разработке');
+        }
+
+        function register() {
+            alert('Функция регистрации в разработке');
+        }
+    </script>
+</body>
+</html>
