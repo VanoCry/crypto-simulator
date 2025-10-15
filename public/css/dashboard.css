@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0f1421, #1a1f2e);
+    color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    background: #1e2335;
+    border-bottom: 1px solid #2a2f45;
+    padding: 20px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: #00ff88;
+    font-size: 24px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-logout {
+    background: #ff4444;
+    color: white;
+}
+
+.btn-logout:hover {
+    background: #ff6666;
+}
+
+/* Balance Panel */
+.balance-panel {
+    background: #1e2335;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px 0;
+    border: 1px solid #2a2f45;
+}
+
+.balance-panel h2 {
+    margin-bottom: 20px;
+    color: #00ff88;
+}
+
+.balance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.balance-card {
+    background: #2a2f45;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.balance-card .currency {
+    font-size: 14px;
+    color: #a0a0c0;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.balance-card .amount {
+    font-size: 24px;
+    font-weight: bold;
+    color: #00ff88;
+}
+
+/* Market Section */
+.market-section {
+    background: #1e2335;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px 0;
+    border: 1px solid #2a2f45;
+}
+
+.market-section h2 {
+    margin-bottom: 20px;
+    color: #00ff88;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.crypto-card {
+    background: #2a2f45;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid #00ff88;
+}
+
+.crypto-card.negative {
+    border-left-color: #ff4444;
+}
+
+.crypto-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.crypto-symbol {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.crypto-price {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.crypto-change {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.change-positive {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+}
+
+.change-negative {
+    background: rgba(255, 68, 68, 0.2);
+    color: #ff4444;
+}
+
+/* Trading Panel */
+.trading-panel {
+    background: #1e2335;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px 0;
+    border: 1px solid #2a2f45;
+}
+
+.trading-panel h2 {
+    margin-bottom: 20px;
+    color: #00ff88;
+}
+
+.trade-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 600px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 8px;
+    color: #a0a0c0;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    background: #2a2f45;
+    border: 1px solid #3a3f55;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #00ff88;
+}
+
+.btn-trade {
+    background: linear-gradient(135deg, #00ff88, #00cc6a);
+    color: #0f1421;
+    font-size: 16px;
+    padding: 15px;
+    margin-top: 10px;
+    grid-column: 1 / -1;
+}
+
+.btn-trade:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 136, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .balance-grid,
+    .market-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .trade-form {
+        grid-template-columns: 1fr;
+    }
+}

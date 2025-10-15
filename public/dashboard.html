@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Crypto Exchange</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <h1>🚀 Crypto Exchange Dashboard</h1>
+                <div class="user-info">
+                    <span id="user-greeting">Welcome, User!</span>
+                    <button class="btn btn-logout" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main container">
+            <!-- Balance Panel -->
+            <section class="balance-panel">
+                <h2>Your Balance</h2>
+                <div class="balance-grid">
+                    <div class="balance-card">
+                        <span class="currency">USD</span>
+                        <span class="amount" id="balance-usd">0.00</span>
+                    </div>
+                    <div class="balance-card">
+                        <span class="currency">BTC</span>
+                        <span class="amount" id="balance-btc">0.000000</span>
+                    </div>
+                    <div class="balance-card">
+                        <span class="currency">ETH</span>
+                        <span class="amount" id="balance-eth">0.000000</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Data -->
+            <section class="market-section">
+                <h2>Market Prices</h2>
+                <div class="market-grid" id="market-grid">
+                    <!-- Crypto cards will be inserted here -->
+                </div>
+            </section>
+
+            <!-- Trading Panel -->
+            <section class="trading-panel">
+                <h2>Trade</h2>
+                <div class="trade-form">
+                    <div class="form-group">
+                        <label>Action:</label>
+                        <select id="trade-action">
+                            <option value="buy">Buy</option>
+                            <option value="sell">Sell</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Currency:</label>
+                        <select id="trade-currency">
+                            <option value="BTC">BTC</option>
+                            <option value="ETH">ETH</option>
+                            <option value="BNB">BNB</option>
+                            <option value="XRP">XRP</option>
+                            <option value="ADA">ADA</option>
+                            <option value="SOL">SOL</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Amount:</label>
+                        <input type="number" id="trade-amount" placeholder="0.00" step="0.000001">
+                    </div>
+                    <div class="form-group">
+                        <label>Price (USD):</label>
+                        <input type="number" id="trade-price" placeholder="0.00" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label>Total (USD):</label>
+                        <input type="number" id="trade-total" placeholder="0.00" readonly>
+                    </div>
+                    <button class="btn btn-trade" onclick="executeTrade()">Execute Trade</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

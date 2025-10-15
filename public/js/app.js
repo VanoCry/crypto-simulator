@@ -37,14 +37,8 @@ function showRegister() {
 
 // Показать панель пользователя
 function showUserPanel() {
-    document.getElementById('login-form').classList.add('hidden');
-    document.getElementById('register-form').classList.add('hidden');
-    document.getElementById('user-panel').classList.remove('hidden');
-    
-    document.getElementById('user-name').textContent = currentUser.username;
-    document.getElementById('balance-usd').textContent = currentUser.balance?.USD?.toFixed(2) || '0.00';
-    document.getElementById('balance-btc').textContent = currentUser.balance?.BTC?.toFixed(6) || '0.000000';
-    document.getElementById('balance-eth').textContent = currentUser.balance?.ETH?.toFixed(6) || '0.000000';
+    // ✅ СРАЗУ ПЕРЕХОДИМ НА ДАШБОРД
+    window.location.href = '/dashboard';
 }
 
 // Показать сообщение
